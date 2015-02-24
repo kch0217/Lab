@@ -58,24 +58,6 @@ public class Post {
 	private Date date;
 	private String content;
 	
-	
-	
-//	@Override
-//	public boolean equals(Object obj) {
-//		// TODO Auto-generated method stub
-//		boolean ans = true;
-//		if (obj ==null){
-//			return false;
-//		}
-//		if (obj.getClass() == this.getClass()){
-//			Post test = (Post) obj;
-//			if (test.getContent().equals(this.getContent())&& test.date == this.date){
-//				return true;
-//			}
-//		}
-//		return false;
-//
-//	}
 
 	public Post(Date date, String content) {
 		super();
