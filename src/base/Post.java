@@ -63,7 +63,7 @@ public class Post {
 		super();
 		this.date = date;
 		this.content = content;
-		System.out.println(date);
+		
 	}
 	
 	public String getContent(){
@@ -78,7 +78,7 @@ public class Post {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return getContent();
+		return this.date + "\n" + getContent();
 		
 	}
 	

@@ -1,6 +1,13 @@
 package base;
 
 public class User {
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "User [userId="+this.ID+", "+"userName="+this.name+", "+"userEmail="+this.email+"]";
+	}
+
+
 	private int ID;
 	private String name;
 	private String email;
@@ -11,7 +18,7 @@ public class User {
 		ID = iD;
 		this.name = name;
 		this.email = email;
-		System.out.println("User [userId="+this.ID+", "+"userName="+this.name+", "+"userEmail="+this.email+"]");
+		
 	}
 
 
