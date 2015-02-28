@@ -1,6 +1,9 @@
-package base;
+package test;
 
 import java.util.Date;
+
+import base.FriendsPost;
+import base.User;
 
 public class testclass {
 	public static void main(String[] args){

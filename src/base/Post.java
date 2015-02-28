@@ -3,6 +3,10 @@ import java.util.Date;
 
 public class Post {
 	
+	
+	private Date date;
+	private String content;
+	
 	/**
 	 * Comments
 	 * 
@@ -55,8 +59,7 @@ public class Post {
 		return true;
 	}
 
-	private Date date;
-	private String content;
+
 	
 
 	public Post(Date date, String content) {

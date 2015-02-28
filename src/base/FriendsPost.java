@@ -3,6 +3,9 @@ package base;
 import java.util.Date;
 
 public class FriendsPost extends Post {
+	
+	private User friend;
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
@@ -18,5 +21,5 @@ public class FriendsPost extends Post {
 		// TODO Auto-generated constructor stub
 	}
 
-	private User friend;
+	
 }

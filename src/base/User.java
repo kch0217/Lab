@@ -1,6 +1,14 @@
 package base;
 
 public class User {
+	
+	
+	private int ID;
+	private String name;
+	private String email;
+	
+	
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
@@ -8,9 +16,7 @@ public class User {
 	}
 
 
-	private int ID;
-	private String name;
-	private String email;
+	
 	
 	
 	public User(int iD, String name, String email) {
@@ -49,6 +55,56 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+
+
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ID;
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof User)) {
+			return false;
+		}
+		User other = (User) obj;
+		if (ID != other.ID) {
+			return false;
+		}
+		if (email == null) {
+			if (other.email != null) {
+				return false;
+			}
+		} else if (!email.equals(other.email)) {
+			return false;
+		}
+		if (name == null) {
+			if (other.name != null) {
+				return false;
+			}
+		} else if (!name.equals(other.name)) {
+			return false;
+		}
+		return true;
 	}
 	
 }
