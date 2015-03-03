@@ -50,6 +50,7 @@ public class Blog {
 	}
 	
 	public void delete(int index){
+		index--;
 		if (index < 0 || index >= allPosts.size() ){
 			System.out.println("Illegal deletion.");
 		}
