@@ -1,6 +1,7 @@
 package blog;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import base.Post;
 import base.User;
@@ -104,10 +105,35 @@ public class Blog {
 	}
 
 
+	public void setPosts(ArrayList<Post> listP){
+		allPosts = listP;
+		
+	}
 
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return super.toString();
 	}
+	
+	/**
+	 * Search posts created in month and mentioned someone
+	 * 
+	 * @param month
+	 * @param someone
+	 */
+	public void search(int month, String someone){
+		Calendar cal = Calendar.getInstance();
+		//search from all posts
+		for(Post p: allPosts){
+			//get the current post's month (note that Calendar.Month starts with 0, not 1)
+			cal.setTime(p.getDate());
+			int postMonth = cal.get(Calendar.MONTH);
+			
+			if (postMonth+1 == month && p.contains(someone)){
+				System.out.println(p);
+			}
+		}
+	}
+	
 }
