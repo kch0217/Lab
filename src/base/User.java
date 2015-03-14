@@ -1,6 +1,8 @@
 package base;
 
-public class User implements Comparable<User>{
+import java.io.Serializable;
+
+public class User implements Comparable<User>, Serializable{
 	
 	
 
@@ -43,7 +45,7 @@ public class User implements Comparable<User>{
 	}
 
 
-	public String getName() {
+	public String getUserName() {
 		return name;
 	}
 
