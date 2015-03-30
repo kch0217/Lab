@@ -161,6 +161,7 @@ public class Blog implements Serializable{
 			Blog temp = (Blog) in.readObject();
 			this.user = temp.user;
 			this.allPosts = temp.allPosts;
+			in.close();
 		}
 		catch (FileNotFoundException e)
 		{
