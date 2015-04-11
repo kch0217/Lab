@@ -43,6 +43,10 @@ public class Blog implements Serializable{
 		System.out.println(p);
 	}
 	
+	public ArrayList<Post> getAllPost(){
+		return allPosts;
+	}
+	
 	public void list(){
 		System.out.println("Current posts:");
 		if (allPosts != null && allPosts.size() > 0){
