@@ -60,13 +60,14 @@ public class BlogGUI   {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			myBlog.load("F:/test.blog");
+			myBlog.load("E:/test.blog");
 			if (postTextArea.getText().length() ==0 || postTextArea.getText().length()>140)
 				return;
 			myBlog.post(new Post(new Date(), postTextArea.getText()));
-			myBlog.save("F:/test.blog");
+			myBlog.save("E:/test.blog");
 			postContent.setText(postTextArea.getText());
 			postTextArea.setText("");
+			updateWordCount();	
 			
 		}
 		
@@ -77,13 +78,13 @@ public class BlogGUI   {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			myBlog.load("F:/test.blog");
+			myBlog.load("E:/test.blog");
 			String temp = "";
 			postContent.setText("");
 			for (int i = 0 ; i< myBlog.getAllPost().size(); i++){				
 				postContent.append(myBlog.getAllPost().get(i).toString()+"\n");
 			}
-						
+			updateWordCount();			
 		}
 		
 	}
@@ -93,28 +94,32 @@ public class BlogGUI   {
 		@Override
 		public void keyPressed(KeyEvent e) {
 			// TODO Auto-generated method stub
-			
+			//updateWordCount();
 		}
 
 		@Override
 		public void keyReleased(KeyEvent e) {
 			// TODO Auto-generated method stub
-			int length = postTextArea.getText().length();
-			
-			if (length >=0 & length <=maxCharacters){
-				instructions.setText("You can still input "+(maxCharacters- length) + " Characters");
-			}
-			else
-				instructions.setText("Your post lenght has exceeded 140!");
+			updateWordCount();
 			
 		}
 
 		@Override
 		public void keyTyped(KeyEvent e) {
 			// TODO Auto-generated method stub
-			
+			//updateWordCount();
 		}
 		
+	}
+	
+	private void updateWordCount(){
+		int length = postTextArea.getText().length();
+		
+		if (length >=0 && length <=maxCharacters){
+			instructions.setText("You can still input "+(maxCharacters- length) + " Characters");
+		}
+		else
+			instructions.setText("Your post lenght has exceeded 140!");
 	}
 	
 
@@ -208,6 +213,7 @@ public class BlogGUI   {
 		mainFrame.add(subWindow);
 		
 		postContent = new JTextArea(5,20);
+		postContent.setEditable(false);
 		post.setBackground(Color.LIGHT_GRAY);
 		//postContent.setHorizontalAlignment(JTextArea.CENTER);
 		
@@ -217,6 +223,7 @@ public class BlogGUI   {
 		
 		
 		mainFrame.setVisible(true);
+		updateWordCount();
 	}
 	
 	
