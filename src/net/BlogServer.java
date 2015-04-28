@@ -18,6 +18,7 @@ public class BlogServer {
 			while ((temp = buf.readLine())!= null){
 				System.out.println(temp);
 			}
+			buf.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
