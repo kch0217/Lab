@@ -34,6 +34,9 @@ public class BlogClient {
 //			wri.println(post);
 			wri.close();
 			read.close();
+			scanner.close();
+			socket.close();
+			
 			
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block

@@ -8,18 +8,19 @@ import java.net.Socket;
 
 public class ThreadHandler implements Runnable{
 	
-	private static int numOfVisitor = 0;
+	private int numOfVisitor;
 	
 	private Socket socket;
 	
-	public ThreadHandler(Socket soc){
+	public ThreadHandler(Socket soc, int num){
 		socket = soc;
+		numOfVisitor = num;
 	}
 	
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		numOfVisitor++;
+		
 		
 		try {
 			BufferedReader read = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -36,7 +37,11 @@ public class ThreadHandler implements Runnable{
 				else{
 					write.println("echo: " + temp);
 				}
-			}	
+			}
+			read.close();
+			write.close();
+			socket.close();
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
